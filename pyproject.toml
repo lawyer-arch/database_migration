@@ -1,0 +1,35 @@
+[project]
+name = "database-migration-project"
+version = "0.1.0"
+description = "Мигратор из MySQL в PostgreSQL"
+authors = [
+    { name = "Pavel", email = "PavelDidko@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.8"
+
+dependencies = [
+    "SQLAlchemy>=2.0",
+    "rich>=13.0",
+    "python-dotenv>=1.0",
+    "typer>=0.9"
+    "tqdm>=4.0"
+    "pymysql>=1.1"
+    "aiomysql>=0.3"
+    "asyncpg>=0.30"
+
+]
+
+[project.optional-dependencies]
+dev = [
+  "ruff>=0.14.1",
+  "uv>=0.5.16",
+  "pytest>=8.4.2",
+]
+
+[tool.ruff]
+target-version = "py313" 
+line-length = 80
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "C90"]
