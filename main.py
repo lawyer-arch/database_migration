@@ -4,6 +4,7 @@ from migrator.schema_reader import SchemaReader
 from migrator.schema_transformer import SchemaTransformer
 from migrator.schema_writer import SchemaWriter
 from migrator.data_migrator import DataMigrator
+from db_waiter import wait_databases
 
 async def full_migration():
     mysql_connector = AsyncDBConnector()
@@ -28,7 +29,13 @@ async def full_migration():
     await mysql_connector.close_connections()
     await pg_connector.close_connections()
 
+async def main():
+    print("Ожидание готовности БД...")
+    await wait_databases()
+    print("Базы данных готовы! Запускаем мигратор...")
+    await full_migration()
 
 if __name__ == "__main__":
-    asyncio.run(full_migration())
+    asyncio.run(main())
+
 

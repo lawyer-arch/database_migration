@@ -8,27 +8,27 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.8"
 
+[tool.uv.dependency-groups.main]
 dependencies = [
     "SQLAlchemy>=2.0",
     "rich>=13.0",
     "python-dotenv>=1.0",
-    "typer>=0.9"
-    "tqdm>=4.0"
-    "pymysql>=1.1"
-    "aiomysql>=0.3"
-    "asyncpg>=0.30"
-
+    "typer>=0.9",
+    "tqdm>=4.0",
+    "pymysql>=1.1",
+    "aiomysql>=0.3",
+    "asyncpg>=0.30",
 ]
 
-[project.optional-dependencies]
-dev = [
-  "ruff>=0.14.1",
-  "uv>=0.5.16",
-  "pytest>=8.4.2",
+[tool.uv.dependency-groups.dev]
+dependencies = [
+    "ruff>=0.14.1",
+    "pytest>=8.4.2",
+    "uv>=0.5.16",
 ]
 
 [tool.ruff]
-target-version = "py313" 
+target-version = "py313"
 line-length = 80
 
 [tool.ruff.lint]
