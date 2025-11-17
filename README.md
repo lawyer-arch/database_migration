@@ -34,10 +34,17 @@ PG_DB=<postgres_db>
 
 3. (Опционально) Создайте виртуальное окружение для локального запуска:
 ```
+# Установите uv, если ещё не установлен
+python -m pip install --upgrade pip
+python -m pip install uv
+
+# Создаём виртуальное окружение (опционально)
 python -m venv .venv
 source .venv/bin/activate
-pip install --upgrade pip
-pip install -r requirements.txt  # можно через pip install SQLAlchemy rich python-dotenv typer tqdm pymysql aiomysql asyncpg
+
+# Установка зависимостей из pyproject.toml
+uv install
+
 ```
 
 
